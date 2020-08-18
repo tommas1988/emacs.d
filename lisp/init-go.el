@@ -4,7 +4,6 @@
 
 ;; https://github.com/golang/tools/blob/master/gopls/doc/emacs.md
 (when (maybe-require-package 'go-mode)
-
   (when (maybe-require-package 'lsp-mode)
     (add-hook 'go-mode-hook #'lsp)
     (add-hook
@@ -12,6 +11,9 @@
      (lambda ()
        (add-hook 'before-save-hook #'lsp-format-buffer t t)
        (add-hook 'before-save-hook #'lsp-organize-imports t t)
+
+       (local-set-key (kbd "M-,") 'pop-tag-mark) ;jumb-back after godef-jump
+       (local-set-key (kbd "M-.") 'godef-jump)
        ))
     )
 
