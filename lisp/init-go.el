@@ -4,7 +4,15 @@
 
 (when (maybe-require-package 'go-mode)
   (maybe-require-package 'company-go)
-  (maybe-require-package `go-autocomplete)
+
+  ;; autocomplete setup
+  ;; gocode
+  ;; (when (maybe-require-package `go-autocomplete)
+  ;;   (when (maybe-require-package `maybe-require-package)
+  ;;     (ac-config-default)))
+  ;; or use gocode with gocomplete https://github.com/vibhavp/go-complete
+  (when (maybe-require-package 'go-complete)
+    (add-hook 'completion-at-point-functions 'go-complete-at-point))
   )
 
 (with-eval-after-load 'go-mode
@@ -27,7 +35,7 @@
      ;; (setq indent-tabs-mode 2)
 
      ;; auto complete for go
-     (auto-complete-mode 1)
+     (setq auto-complete-mode 1)
      )
    )
   )
