@@ -40,6 +40,9 @@
    )
   )
 
+;; disable flycheck
+(setq flycheck-global-modes '(not go-mode))
+
 (provide 'init-go)
 
 ;;; init-go.el ends here
