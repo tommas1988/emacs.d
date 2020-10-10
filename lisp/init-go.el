@@ -28,9 +28,9 @@
      ;;          "go build -v && go test -v && go vet"))
      ;; ;; guru settings
      ;; (go-guru-hl-identifier-mode)
-     ;; Godef jump
-     (local-set-key (kbd "M-,") 'pop-tag-mark) ;jumb-back after godef-jump
-     (local-set-key (kbd "M-.") 'godef-jump)
+     ;; ;; Godef jump
+     ;; (local-set-key (kbd "M-,") 'pop-tag-mark) ;jumb-back after godef-jump
+     ;; (local-set-key (kbd "M-.") 'godef-jump)
      ;; (setq tab-width 2)
      ;; (setq indent-tabs-mode 2)
 
