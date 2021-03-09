@@ -35,7 +35,7 @@
 ;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-utils)
-(require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
+
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
@@ -122,6 +122,7 @@
 (require 'init-clojure-cider)
 (require 'init-common-lisp)
 (require 'init-go)
+(require 'init-es)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
