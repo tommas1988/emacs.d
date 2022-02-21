@@ -6,7 +6,7 @@
 (when (maybe-require-package 'go-mode)
 
   (when (maybe-require-package 'lsp-mode)
-    ;; (add-hook 'go-mode-hook #'lsp)
+    (add-hook 'go-mode-hook #'lsp)
     (add-hook
      'go-mode-hook
      (lambda ()
@@ -16,6 +16,7 @@
     )
 
   (maybe-require-package 'company-go)
+  (maybe-require-package 'go-dlv)
   ;; autocomplete setup
   ;; gocode
   ;; (when (maybe-require-package `go-autocomplete)
