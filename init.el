@@ -129,6 +129,8 @@
 (require 'init-common-lisp)
 (require 'init-go)
 (require 'init-es)
+(require 'init-ggtags)
+(require 'init-vue)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
