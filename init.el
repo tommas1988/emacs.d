@@ -130,11 +130,6 @@
 (require 'init-folding)
 (require 'init-dash)
 
-(when (and (require 'treesit nil t)
-           (fboundp 'treesit-available-p)
-           (treesit-available-p))
-  (require 'init-treesitter))
-
 (require 'init-ledger)
 ;; Extra packages which don't require any configuration
 
@@ -157,6 +152,11 @@
   (add-hook 'after-init-hook 'global-eldoc-mode))
 
 (require 'init-direnv)
+
+(when (and (require 'treesit nil t)
+           (fboundp 'treesit-available-p)
+           (treesit-available-p))
+  (require 'init-treesitter))
 
 
 
