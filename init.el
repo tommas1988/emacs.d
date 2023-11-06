@@ -31,6 +31,12 @@
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 
+;; Process performance tuning
+
+(setq read-process-output-max (* 4 1024 1024))
+(setq process-adaptive-read-buffering nil)
+
+
 ;; Bootstrap config
 
 
@@ -132,6 +138,7 @@
 
 (require 'init-ledger)
 (require 'init-lua)
+(require 'init-terminals)
 
 ;; Extra packages which don't require any configuration
 
