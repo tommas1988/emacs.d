@@ -11,9 +11,6 @@
      (lambda ()
        (add-hook 'before-save-hook #'lsp-format-buffer t t)
        (add-hook 'before-save-hook #'lsp-organize-imports t t)
-
-       (local-set-key (kbd "M-,") 'pop-tag-mark) ;jumb-back after godef-jump
-       (local-set-key (kbd "M-.") 'godef-jump)
        ))
     )
 
