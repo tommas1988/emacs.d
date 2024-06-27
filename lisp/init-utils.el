@@ -105,6 +105,43 @@ BUFFER and ALIST are as for `display-buffer-full-frame'."
         (error "Cannot open tramp file")
       (browse-url (concat "file://" file-name)))))
 
+(defun convert-region-to-naming-convention (conv-func)
+  (let (deactivated-mark
+        old-state
+        beg
+        end
+        converted-text)
+
+    ;; Save the state of the mark and deactivate it
+    (setq deactivated-mark (mark))
+    (setq old-state (if (region-active-p) t nil))
+    (when old-state (deactivate-mark))
+
+    ;; Get the boundaries of the region
+    (setq beg (region-beginning))
+    (setq end (region-end))
+
+    ;; Copy the region's text, kill the region, and convert it
+    (setq converted-text (buffer-substring beg end))
+    (delete-region beg end)
+    (setq converted-text (funcall conv-func converted-text))
+
+    ;; Insert the converted text
+    (insert converted-text)
+
+    ;; Restore the mark state
+    (if old-state (activate-mark))
+    (set-mark beg)))
+
+(defun upper-camel-case-region ()
+  "Convert region to UpperCamelCase."
+  (interactive)
+  (convert-region-to-naming-convention 's-upper-camel-case))
+
+(defun lower-camel-case-region ()
+  "Convert region to lowerCamelCase."
+  (interactive)
+  (convert-region-to-naming-convention 's-lower-camel-case))
 
 (provide 'init-utils)
 ;;; init-utils.el ends here
